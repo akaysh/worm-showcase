@@ -10,6 +10,11 @@
      border: 1px solid #9C9898;
    }
   </style>
+  <script src="jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="base64.js"></script>
+  <script type="text/javascript" src="canvas2image.js"></script>
+
+  <script type="text/javascript" src="worms.js"></script>
  <script>
   window.onload = function() {
     var canvas = document.getElementById("myCanvas");
@@ -25,6 +30,19 @@
 </script>
 </head>
 <body>
-  <canvas id="myCanvas" width="578" height="400"></canvas>
+
+  <fieldset><legend>Build Your Own</legend>
+    Enter a path to image: <input id="imgPath" value=""/><br />
+    Initial Number of Worms: <input id="initWorms" value="50" size="3"/> Maximum Number of Worms: <input id="maxWorms" value="100" size="3"/>&nbsp;Background Color: <input id="bgColor" value="#ECAA1f" size="10"/><br />
+    Worm Color: Check for Random Colors: <input id="randomWormColors" type="checkbox" /> or specify a Worm color (in HEX):  Red: <input id="wRed" value="00" size="3" /> Green: <input id="wGreen" value="00" size="3"/>  Blue: <input id="wBlue" value="00" size="3"/><br />
+    <br />
+    <input type="button" onclick="goWorms()" value="1. Create Drawing" />
+    <input type="button" onclick="pause()" value="Pause" id="pauseButton" />
+    <input type="button" onclick=" Canvas2Image.saveAsPNG(gCanvas); " value="Save As PNG" id="saveButton" />
+    </fieldset>
+    <img src="./" align="left" id="srcImg" />
+    <div id="output">
+        Your drawing will appear here.</div>
+    
 </body>
 </html>
